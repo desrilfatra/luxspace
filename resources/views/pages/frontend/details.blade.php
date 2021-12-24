@@ -1,3 +1,8 @@
+  
+  @extends('layouts.frontend')
+
+  @section('content')
+  
     <!-- START: BREADCRUMB -->
     <section class="bg-gray-100 py-8 px-4">
         <div class="container mx-auto">
@@ -29,10 +34,10 @@
                 <div class="px-2">
                   <div
                     class="item selected"
-                    data-img="./images/content/showcase-1.front.jpg"
+                    data-img="/frontend/images/content/showcase-1.front.jpg"
                   >
                     <img
-                      src="./images/content/showcase-1.front.jpg"
+                      src="/frontend/images/content/showcase-1.front.jpg"
                       alt="front"
                       class="object-cover w-full h-full rounded-lg"
                     />
@@ -41,10 +46,10 @@
                 <div class="px-2">
                   <div
                     class="item"
-                    data-img="./images/content/showcase-1.back.jpg"
+                    data-img="/frontend/images/content/showcase-1.back.jpg"
                   >
                     <img
-                      src="./images/content/showcase-1.back.jpg"
+                      src="/frontend/images/content/showcase-1.back.jpg"
                       alt="back"
                       class="object-cover w-full h-full rounded-lg"
                     />
@@ -53,10 +58,10 @@
                 <div class="px-2">
                   <div
                     class="item"
-                    data-img="./images/content/showcase-1.rear.jpg"
+                    data-img="/frontend/images/content/showcase-1.rear.jpg"
                   >
                     <img
-                      src="./images/content/showcase-1.rear.jpg"
+                      src="/frontend/images/content/showcase-1.rear.jpg"
                       alt="rear"
                       class="object-cover w-full h-full rounded-lg"
                     />
@@ -65,10 +70,10 @@
                 <div class="px-2">
                   <div
                     class="item"
-                    data-img="./images/content/showcase-1.side.jpg"
+                    data-img="/frontend/images/content/showcase-1.side.jpg"
                   >
                     <img
-                      src="./images/content/showcase-1.side.jpg"
+                      src="/frontend/images/content/showcase-1.side.jpg"
                       alt="side"
                       class="object-cover w-full h-full rounded-lg"
                     />
@@ -77,10 +82,10 @@
                 <div class="px-2">
                   <div
                     class="item"
-                    data-img="./images/content/showcase-1.top.jpg"
+                    data-img="/frontend/images/content/showcase-1.top.jpg"
                   >
                     <img
-                      src="./images/content/showcase-1.top.jpg"
+                      src="/frontend/images/content/showcase-1.top.jpg"
                       alt="top"
                       class="object-cover w-full h-full rounded-lg"
                     />
@@ -90,7 +95,7 @@
               <div class="preview">
                 <div class="item rounded-lg h-full overflow-hidden">
                   <img
-                    src="./images/content/showcase-1.front.jpg"
+                    src="/frontend/images/content/showcase-1.front.jpg"
                     alt="front"
                     class="object-cover w-full h-full rounded-lg"
                   />
@@ -224,3 +229,7 @@
         </div>
       </section>
       <!-- END: COMPLETE YOUR ROOM -->
+
+  
+  
+  @endsection
