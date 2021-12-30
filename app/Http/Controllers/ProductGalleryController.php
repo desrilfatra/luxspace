@@ -24,7 +24,7 @@ class ProductGalleryController extends Controller
             return DataTables::of($query)
             ->addColumn('action', function($item){
                 return '
-                    <form class="inline-block" action="'. route('dashboard.product.destroy', $item->id) .'" method="POST">
+                    <form class="inline-block" action="'. route('dashboard.gallery.destroy', $item->id) .'" method="POST">
                         <button class="bg-red-500 text-black rounded-md px-2 py-1 m-2">                            
                                 Hapus
                         </button>
@@ -49,9 +49,9 @@ class ProductGalleryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
-        //
+        return view('pages.dashboard.gallery.create', compact('product'));
     }
 
     /**
