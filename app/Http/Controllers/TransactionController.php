@@ -24,11 +24,11 @@ class TransactionController extends Controller
             return DataTables::of($query)
             ->addColumn('action', function($item){
                 return '
-                    <a href="'. route('dashboard.product.gallery.index', $item->id) . '" class="bg-green-500 text-white rounded-md px-2 py-1 m-2">
+                    <a href="'. route('dashboard.transaction.show', $item->id) . '" class="bg-green-500 text-white rounded-md px-2 py-1 m-2">
                         Show
                     </a>
                     
-                    <a href="'. route('dashboard.product.edit', $item->id) . '" class="bg-gray-500 text-white rounded-md px-2 py-1 m-2">
+                    <a href="'. route('dashboard.transaction.edit', $item->id) . '" class="bg-gray-500 text-white rounded-md px-2 py-1 m-2">
                         Edit
                     </a>
                     
