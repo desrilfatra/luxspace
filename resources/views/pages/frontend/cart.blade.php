@@ -63,7 +63,7 @@
           <div class="px-4 flex-none">
             <div class="" style="width: 90px; height: 90px">
               <img
-              src="{{ $item->$product->galleries()->exists() ? Storage::url($item->$product->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}"
+              src="{{ $item->product->galleries()->exists() ? Storage::url($item->product->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}"
                 alt="chair-1"
                 class="object-cover rounded-xl w-full h-full"
               />
@@ -91,12 +91,16 @@
           </div>
           <div class="px-4 w-2/12">
             <div class="text-center">
-              <button
+              <form action="{{ route('cart-delete', $item->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button
                 data-delete-item="1"
                 class="text-red-600 border-none focus:outline-none px-3 py-1"
-              >
-                X
+                 >
+                    X
               </button>
+              </form>
             </div>
           </div>
         </div>
@@ -104,7 +108,7 @@
           @empty
           <p id="cart-empty" class="text-center py-8">
             Ooops... Cart is empty
-            <a href="details.html" class="underline">Shop Now</a>
+            <a href="{{ route('index') }}" class="underline">Shop Now</a>
           </p>   
           @endforelse
 
@@ -112,7 +116,8 @@
         </div>
         <div class="w-full md:px-4 md:w-4/12" id="shipping-detail">
           <div class="bg-gray-100 px-4 py-6 md:p-8 md:rounded-3xl">
-            <form action="success.html">
+            <form action="{{ route('checkout') }}" method="POST">
+              @csrf
               <div class="flex flex-start mb-6">
                 <h3 class="text-2xl">Shipping Details</h3>
               </div>
@@ -123,6 +128,7 @@
                 >
                 <input
                   data-input
+                  name="name"
                   type="text"
                   id="complete-name"
                   class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
@@ -134,6 +140,7 @@
                 <label for="email" class="text-sm mb-2">Email Address</label>
                 <input
                   data-input
+                  name="email"
                   type="email"
                   id="email"
                   class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
@@ -145,6 +152,7 @@
                 <label for="address" class="text-sm mb-2">Address</label>
                 <input
                   data-input
+                  name="address"
                   type="text"
                   id="address"
                   class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
@@ -158,6 +166,7 @@
                 >
                 <input
                   data-input
+                  name="phone"
                   type="tel"
                   id="phone-number"
                   class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
