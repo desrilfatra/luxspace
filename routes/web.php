@@ -30,12 +30,17 @@ Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('det
    Route::post('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
    Route::get('/checkout/success', [FrontendController::class, 'success'])->name('checkout-success');
 
+   
  });
 
 
 
  Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('index'); 
+
+        Route::resource('my-transaction', MyTransactionController::class)->shallow()->only([
+          'index', 'show'
+         ]); 
 
         Route::middleware(['admin'])->group(function(){
            Route::resource('product', ProductController::class);
