@@ -4,11 +4,9 @@ namespace App\Http\Controllers\API;
 
 use Midtrans\Config;
 use App\Http\Controllers\Controller;
-use App\Models\TransactionItem;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Midtrans\Notification;
-
-use function PHPSTORM_META\type;
 
 class MidtransController extends Controller
 {
@@ -33,7 +31,7 @@ class MidtransController extends Controller
         $order = explode('-', $order_id);
 
         // Cari transaksi berdasarkan ID
-        $transaction = Transaction::findOrFail($orde[1]);
+        $transaction = Transaction::findOrFail($order[1]);
 
         // Handle Notification status midtrans
         if ($status == 'capture') {
